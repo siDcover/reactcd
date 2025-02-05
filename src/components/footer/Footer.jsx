@@ -20,8 +20,8 @@ export default class Footer extends Component {
         </ul>
         
         <div className="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener noreferrer">Frontend Mentor</a>. 
-          Coded by <a href="https://www.facebook.com/soearkar.htet.526/">Soe Arkar Htet</a>.
+          
+          Coded by <a href="https://www.instagram.com/sidd.dmg/">Sidd.dmg</a>.
         </div>
       </footer>
     )
