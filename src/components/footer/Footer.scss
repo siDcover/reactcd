@@ -1,0 +1,74 @@
+@import "../styles/functions";
+@import "../styles/variables";
+@import "../styles/mixin";
+.footer {
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: right 17% bottom;
+  background-size: cover;
+  background-position: right 18% bottom;
+  
+  @include breakpoint-up(medium) {
+    background-position: right center;
+  }
+
+  @include breakpoint-up(large) {
+    height: 25vh;
+    background-position: center top;
+  }
+
+  @media screen and (min-width: 1024px) and (min-height: 1340px) {
+    height: 20vh;
+    background-position: right center;
+  }
+
+  &__social {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &__item {
+      display: inline-block;
+
+      &:not(:last-child) {
+        margin-right: to-rem(32);
+      }
+    }
+
+    &__link {
+      color: $grayishBlue;
+      @include easeInOut(all, 300ms);
+
+      &:hover {
+        color: $softRed;
+      }
+    }
+
+    &__icon {
+      vertical-align: middle;
+    }
+  }
+}
+
+.attribution {
+  padding: to-rem(20) 0 to-rem(5) 0;
+  font-size: to-rem(10);
+  color: $grayishBlue;
+
+  @include breakpoint-up(medium) {
+    padding-top: to-rem(30);
+  }
+
+  a {
+    color: $grayishBlue;
+    @include easeInOut(all, 300ms);
+
+    &:hover {
+      color: $softRed;
+    }
+  }
+}

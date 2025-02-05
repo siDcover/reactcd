@@ -1,0 +1,108 @@
+@import "../styles/functions";
+@import "../styles/variables";
+@import "../styles/mixin";
+.countdown {
+  &__unit__container {
+    position: relative;
+    width: to-rem(70);
+    height: to-rem(70);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: to-rem(5);
+    background-color: $veryDarkBlack;
+    font-size: 32px;
+    font-weight: $font-normal;
+    box-shadow: 0px 5px 0px 0px rgb(25, 26, 36);
+    overflow: hidden;
+    perspective-origin: 50% 50%;
+    perspective: 300px;
+
+    @include breakpoint-up(medium) {
+      width: to-rem(140);
+      height: to-rem(140);
+      border-radius: to-rem(8);
+      font-size: to-rem(60);
+      box-shadow: 0px 10px 0px 0px rgb(25, 26, 36);
+    }
+
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      width: 6px;
+      height: 7px;
+      background-color: $veryDarkBlack;
+      border-radius: 50%;
+      z-index: 9;
+
+      @include breakpoint-up(medium) {
+        width: 12px;
+        height: 13px;
+      }
+    }
+
+    &::before {
+      left: to-rem(-3);
+    }
+
+    &::after {
+      right: to-rem(-3);
+    }
+
+    @include breakpoint-up(medium) {
+      &::before {
+        left: to-rem(-6);
+      }
+
+      &::after {
+        right: to-rem(-6);
+      }
+    }
+  }
+
+  &__card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    
+    &--top {
+      align-items: flex-end;
+      background-color: $cardTop;
+      
+      span {
+        color: hsla(345, 95%, 68%, 0.7);
+        transform: translateY(50%);
+      }
+    }
+
+    &--bottom {
+      align-items: flex-start;
+      background-color: $darkDesaturatedBlue;
+
+      span {
+        color: $softRed;
+        transform: translateY(-50%);
+      }
+    }
+
+  }
+
+  &__stats {
+    padding-top: to-rem(13);
+    color: $grayishBlue;
+    font-size: to-rem(9);
+    font-weight: $font-normal;
+    text-transform: uppercase;
+    letter-spacing: to-rem(2);
+
+    @include breakpoint-up(medium) {
+      font-size: to-rem(12);
+      padding-top: to-rem(28);
+    }
+  }
+
+}

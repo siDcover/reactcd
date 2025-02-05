@@ -1,0 +1,42 @@
+@import "../styles/_functions";
+@import "../styles/variables";
+@import "../styles/mixin";
+.countdown {
+  text-align: center;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-repeat: no-repeat;
+  background-size: 375%;
+  background-position: center;
+
+  @include breakpoint-up(medium) {
+    background-size: cover;
+  }
+
+  @include breakpoint-up(large) {
+    height: 75vh;
+  }
+  
+  // ipad pro
+  @media screen and (min-width: 1024px) and (min-height: 1340px) {
+    height: 80vh;
+  }
+
+  &__title {
+    font-size: to-rem(20);
+    color: $white;
+    text-transform: uppercase;
+    letter-spacing: to-rem(5);
+    margin-bottom: to-rem(55);
+  }
+
+  &__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: to-rem(16);
+  }
+  
+}
