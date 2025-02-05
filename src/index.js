@@ -1,17 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom/client';
+import './App.css';
+import Countdown from './Components/Countdown/Countdown';
+import dayjs from 'dayjs';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class App extends Component { 
+  //Set Default launch date on first load
+  setLaunchDate(launch){
+    const defaultDate = launch.set('hour', 0).set('minute', 0).set('second', 0).set('date', launch.get('date')+2);
+    return defaultDate;
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  render(){
+    return(
+    <div className="App">
+      <h1>WE'RE LAUNCHING SOON</h1>
+      <Countdown
+      CountdownTime={this.setLaunchDate(dayjs())}/>
+    </div>
+    );
+  }
+}
+
+  // ========================================
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  root.render(
+    <React.StrictMode>
+      <div className='stars'></div>
+      <App />
+      <div className='mountains'></div>
+    </React.StrictMode>
+  );
